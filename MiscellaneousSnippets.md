@@ -826,7 +826,7 @@ powershell -command "DIR *.ts | REN -NewName { $_.Name -replace '....ts-', '' }"
 ```cmd
 powershell -command "DIR *.ts | REN -NewName { $_.Name -replace '....ts-', '' }"
 ```
-### Windows Search Filename part string with special chars(~=<any special-char incl. space>):
+### Windows Search Filename part string with special chars(~=<<any special-char incl. space>>):
 ```search-ms
 Windows Search Box: "V~= 2020"*mp4
 ```
