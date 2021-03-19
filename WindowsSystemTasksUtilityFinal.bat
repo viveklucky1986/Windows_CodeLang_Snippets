@@ -32,7 +32,7 @@ a: GDriveSync ^& Browser Cleanup^
 
 b: Force Off Windows Updates ^& Cleanup^
 
-c: Reset Nightlight Settings ^& Reboot^
+c: Reset Nightlight ^& Purge Shadow Copies^
 
 d: Add to Context Menu thro' Registry^
 
@@ -175,6 +175,8 @@ if %errorlevel% == 1 (
     DEL /F /S /Q %SystemDrive%\*.old & DEL /F /S /Q %SystemDrive%\*.old
     DEL /F /S /Q %SystemDrive%\*.tor* & DEL /F /S /Q %SystemDrive%\*.tor*
 ) else if %errorlevel% == 13 (
+    vssadmin delete shadows /all && vssadmin delete shadows /for=C: /all
+    VSSADMIN DELETE SHADOWS /ALL && VSSADMIN DELETE SHADOWS /FOR=C: /ALL
     REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Cloud\$$windows.data.bluelightreduction.settings /F
     REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Cloud\$$windows.data.bluelightreduction.bluelightreductionstate /F
     SHUTDOWN /R /T 00
