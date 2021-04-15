@@ -1150,3 +1150,124 @@ subl $(git diff --name-only --cached | tr "\n" " ")
 subl `git diff --name-only --cached | tr "\n" " "`
 subl $(git diff --name-only --cached | tr "\n" " ")
 ```
+### Bash/GitBash ClearHistory method with optimum functionalities:
+```sh
+ClearHistory()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory-v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory_v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+```
+```bash
+ClearHistory()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory-v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory_v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+```
+```gitbash
+ClearHistory()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory-v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+
+ClearHistory_v1()
+{
+    history -cw && history -wc && reset && clear && rm -f $HISTFILE;
+    if [ "$(git rev-parse --git-dir)" == ".git" ]; then
+        git status && read -r -p 'Do extra tasks? ' ans && [[ "${ans,,}" =~ ^(no|n)$ ]] && return;
+        [[ `git diff --name-only` ]] && Unstaged=`git diff --name-only --cached | tr '\n' ' '`;
+        [[ `git diff --name-only --cached` ]] && Staged=`git diff --name-only --cached | tr '\n' ' '`;
+        read -r -p "Add Unstaged edits ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && git add .;
+        read -r -p "Open Staged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Staged;
+        read -r -p "Open Unstaged files ? [y/N] " choice && [[ "${choice,,}" =~ ^(yes|y)$ ]] && subl $Unstaged;
+    fi;
+}
+```
